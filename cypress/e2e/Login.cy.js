@@ -29,13 +29,13 @@ describe('Testing of Login authentication page', () => {
   })
 
   it("should Verify authentication using no credentials",()=>{
-    login.getSubmit()
+    login.clickSubmit()
     cy.get('.message-error').should('exist')
   })
 
   it("should Verify authentication using no credentials after page loading",()=>{
     cy.wait(2000)
-    login.getSubmit()
+    login.clickSubmit()
     cy.get('#email-error').should('exist').should('be.visible')
     cy.get('#pass-error').should('exist').should('be.visible')
   })
@@ -45,9 +45,9 @@ describe('Testing of Login authentication page', () => {
       console.log(userData);
       userData.forEach((user)=>{
               
-      login.getEmail(user.email)
-      login.getPassword(user.password)
-      login.getSubmit()
+      login.enterEmail(user.email)
+      login.enterPassword(user.password)
+      login.clickSubmit()
       cy.get('#email-error').should('be.visible')
       cy.reload()
       })
@@ -55,24 +55,26 @@ describe('Testing of Login authentication page', () => {
   })
 
   it("Verify authentication using unregistered credentials",()=>{
-      login.getEmail(incorrectEmail)
-      login.getPassword(incorrectPassword)
-      login.getSubmit()
+      login.enterEmail(incorrectEmail)
+      login.enterPassword(incorrectPassword)
+      login.clickSubmit()
       cy.get('.message-error').should('exist').should('be.visible')
-      login.getEmailTextBox().should('have.value',incorrectEmail)
+      login.enterEmailTextBox().should('have.value',incorrectEmail)
   })
 
   it("Verify authentication using registered email and incorrect password.",()=>{
-      login.getEmail(registeredEmail)
-      login.getPassword("incorrect")
-      login.getSubmit()
+      login.enterEmail(registeredEmail)
+      login.enterPassword("incorrect")
+      login.clickSubmit()
       cy.get('.message-error').should('exist').should('be.visible')
   })
 
-  it.only("Verify authentication using registered email and no password.",()=>{
-      login.getEmail(registeredEmail)
-      login.getSubmit()
-      cy.get('#pass-error').should('exist').should('be.visible')
+  //please refer the test case sheet for this particular test case
+  it("Verify authentication using registered email and no password.",()=>{
+      login.enterEmail(registeredEmail)
+      cy.wait(1000)
+      login.clickSubmit()
+      login.getPasswordError().should('exist').should('be.visible')
   })
 
 })

@@ -1,6 +1,6 @@
 class Login{
 
-    getEmail(email){
+    enterEmail(email){
         return cy.get('#email').type(email)
     }
 
@@ -8,12 +8,16 @@ class Login{
         return cy.get('#email')
     }
 
-    getPassword(password){
+    enterPassword(password){
         return cy.get('#pass').type(password)
     }
 
-    getSubmit(){
+    clickSubmit(){
         return cy.get('#send2').click()
+    }
+
+    getPasswordError(){
+        return cy.get('#pass-error')
     }
 
 }
