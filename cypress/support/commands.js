@@ -13,6 +13,16 @@
 Cypress.Commands.add('getByClass', (selector) => { 
     cy.get(`'[class="${selector}"]'`)
  })
+
+ Cypress.Commands.add('checkForError',(textSelector,modalSelector)=>{
+    cy.get('body').then((body)=>{
+        if (body.find(textSelector)>0){
+            cy.get(textSelector).should('be.visible')
+        } else{
+            cy.get(modalSelector).should('be.visible')
+        }
+    })
+ })
 //
 //
 // -- This is a child command --

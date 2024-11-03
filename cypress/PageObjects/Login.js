@@ -13,11 +13,15 @@ class Login{
     }
 
     clickSubmit(){
-        return cy.get('#send2').click()
+        return cy.get('#send2').click({force: true})
     }
 
     getPasswordError(){
         return cy.get('#pass-error')
+    }
+
+    getEmailError(){
+        return cy.get('#email-error')
     }
 
 }
