@@ -21,7 +21,11 @@ describe('Testing of Login authentication page', () => {
   beforeEach(()=>{
     cy.visit('/');
     cy.get('[class="header links"]').first().find('li.authorization-link').first().click()
+    cy.url().should("include","/customer/account/login")
+    //ensuring no error is present already
     cy.get('.message-error').should('not.exist')
+    cy.get('#email-error').should('not.exist')
+    cy.get('#pass-error').should('not.exist')
   })
 
   it("should Verify authentication using no credentials",()=>{
@@ -31,8 +35,6 @@ describe('Testing of Login authentication page', () => {
 
   it("should Verify authentication using no credentials after page loading",()=>{
     cy.wait(2000)
-    cy.get('#email-error').should('not.exist')
-    cy.get('#pass-error').should('not.exist')
     login.getSubmit()
     cy.get('#email-error').should('exist').should('be.visible')
     cy.get('#pass-error').should('exist').should('be.visible')
