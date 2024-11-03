@@ -1,0 +1,32 @@
+[
+    {
+        "firstName" : "$%#$",
+        "lastName" : "9076sd",
+        "email" : "test@gmail.com",
+        "password" : "Test12345678@"
+    },
+    {
+        "firstName" : "Yash90",
+        "lastName" : " @Raj",
+        "email" : "test@gmail.com",
+        "password" : "Test12345678@"
+    },
+    {
+        "firstName" : "Yas$h90",
+        "lastName" : " Raj",
+        "email" : "test@gmail.com",
+        "password" : "Test12345678@"
+    },
+    {
+        "firstName" : "Yash",
+        "lastName" : "@Raj",
+        "email" : "test@gmail.com",
+        "password" : "Test12345678@"
+    },
+    {
+        "firstName" : "Yash",
+        "lastName" : "@$%$%^9*5",
+        "email" : "test@gmail.com",
+        "password" : "Test12345678@"
+    }
+]
