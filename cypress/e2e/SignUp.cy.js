@@ -76,7 +76,10 @@ describe('Testing of Sign Up registration page', () => {
     })
   })
 
-  it.only("Verify signing up with a registered email",()=>{
+  //this case also has some inconsistency
+  //sometimes the web app takes the user to the home page, the other time it takes it to the account settings.
+  // So any test fail (if occurs), is expected. 
+  it("Verify signing up with a registered email",()=>{
     signup.fillFormAndSubmit('Ritik','Raj', 'test@pop.com' ,'Test12345678@','Test12345678@')
     signup.getBannerErrorMessage().should('be.visible')
   })
