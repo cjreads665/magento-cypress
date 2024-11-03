@@ -70,6 +70,10 @@ class SignUp {
     return cy.get("#password-confirmation-error");
   }
 
+  getBannerErrorMessage(){
+    return cy.get('.message-error')
+  }
+
   assertUrlContains(url) {
     cy.url().should("include", url);
   }
