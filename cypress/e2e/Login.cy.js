@@ -59,7 +59,7 @@ describe('Testing of Login authentication page', () => {
       login.enterPassword(incorrectPassword)
       login.clickSubmit()
       cy.get('.message-error').should('exist').should('be.visible')
-      login.enterEmailTextBox().should('have.value',incorrectEmail)
+      login.getEmailTextBox().should('have.value',incorrectEmail)
   })
 
   it("Verify authentication using registered email and incorrect password.",()=>{
